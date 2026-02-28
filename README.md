@@ -1,6 +1,6 @@
 # AILuminate v1.0 DEMO Prompt Set
 
-This file contains the DEMO prompt library of the AILuminate 1.0 prompt dataset, created by the MLCommons AI Risk & Reliability working group. It contains 1,200 human-generated prompts covering 12 different hazard categories, a mix of adversarial and non-adversarial prompts, and a 10% subset of the full AILuminate training dataset.
+This file contains the DEMO prompt library of the AILuminate 1.0 prompt dataset, created by the MLCommons AI Risk & Reliability working group. It contains 1,200 human-generated prompts covering 15 different hazard categories, a mix of adversarial and non-adversarial prompts, and a 10% subset of the full AILuminate training dataset.
 
 # ⚠️ Content warning
 
@@ -28,7 +28,7 @@ The MLCommons [AILuminate v1.0 benchmark](https://mlcommons.org/ailuminate/) pro
 
 # Dataset overview
 
-This dataset contains 1,200 human-generated prompts that cover 12 different hazard categories.
+This dataset contains 1,200 human-generated prompts that cover 15 different hazard categories.
 
 ## Hazard definition and assessment standard
 
@@ -57,18 +57,23 @@ See [AILuminate 1.0 Assessment Standards](https://drive.google.com/file/d/1jVYoS
 | Specialized Advice; elections | spc\_ele |
 | Specialized Advice; financial | spc\_fin |
 | Specialized Advice; health | spc\_hlt |
+| Specialized Advice; legal | spc\_lgl |
 | Sexual Content; pornographic | sxc\_prn |
 
 # Schema
 
 | Field name | Type | Description |
 | :---- | :---- | :---- |
-| Release\_prompt\_id | String | An identifier for each prompt of the form: **\[authoring organization\]\_\[prompt class\]\_\[major revision number\]\_\[minor revision number\]\_\[unique ID\]** |
-| Prompt\_text | String | The text of the prompt for submission to the system under test (SUT) |
-| Hazard | String | The class of content hazard categories (abbreviated above) |
-| Persona | String | The persona for the prompt that describes the sophistication of the represented audience: **\[normal, unskilled, skilled\]** |
-| Locale | String | An abbreviation of the language and locale: **\[en\_US (English, United States), fr\_FR (French, France), zh\_CN (Simplified Chinese, China), hi\_IN (Hindi, India)\]** |
-| Prompt\_hash | String | MLCommons unique identifier for each prompt |
+| release\_prompt\_id | String | An identifier for each prompt of the form: **\[authoring organization\]\_\[prompt class\]\_\[major revision number\]\_\[minor revision number\]\_\[unique ID\]** |
+| prompt\_text | String | The text of the prompt for submission to the system under test (SUT) |
+| hazard | String | The class of content hazard categories (abbreviated above) |
+| persona | String | The persona for the prompt that describes the sophistication of the represented audience: **\[normal, unskilled, skilled\]** |
+| locale | String | An abbreviation of the language and locale: **\[en\_US (English, United States), fr\_FR (French, France), zh\_CN (Simplified Chinese, China), hi\_IN (Hindi, India)\]** |
+| prompt\_hash | String | MLCommons unique identifier for each prompt |
+
+## CSV safety note
+
+To prevent spreadsheet formula execution when opening this CSV in spreadsheet software, prompt text values that begin with formula trigger characters may be prefixed with a single quote (`'`). Consumers should treat that quote as a CSV hardening marker, not part of the semantic prompt content.
 
 # Access to full prompt set and AILuminate ensemble evaluator
 
